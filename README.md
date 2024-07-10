@@ -7,26 +7,26 @@ Recommender System (RSs) merupakan sebuah sistem yang digunakan untuk membantu u
 
 Selain aplikasi-aplikasi yang disebutkan sebelumnya, terdapat aplikasi lain yang juga menggunakan Recommender System ini untuk meningkatkan pengalaman berbelanja user. Menurut data yang dikeluarkan oleh Steam, user aktif Steam sudah meningkat pada platform hingga 47 Juta, dan user aktif per bulannya adalah 90 Juta, serta peningkatan perbulan dari user dengan pembelian yang valid adalah 1.6 Juta [[5]](https://steamcommunity.com/groups/steamworks/announcements/detail/1697194621363928453). Salah satu alasan utama mengapa Steam bisa tumbuh sangat cepat karena adanya kemampuan mesin pencarian yang sangat baik yang dimention oleh Steam di dalam reportnya. Saat ini, Steam sedang mengembangkan Recommender System yang bekerja dengan Machine Learning untuk dapat menemukan games yang sesuai dengan preferensi penggemar, Steam sendiri juga sedang membangun lebih banyak fitur live dan apresiasi serta terus melakukan evaluasi desain keseluruhan dari toko tersebut.
 
-Di sisi lain, sistem rekomendasi terkadang tidak berfungsi sebaik yang diharapkan. Salah satu alasan untuk ini adalah Efek Matius [[6]](https://link.springer.com/chapter/10.1007/978-3-030-44900-1_9#citeas)[[7]](https://www.science.org/doi/abs/10.1126/science.159.3810.56), yang berarti yang kaya semakin kaya dan yang miskin semakin miskin, selalu muncul di bidang ilmu sosial, juga dapat diterapkan pada pasar game. Game-game yang dikembangkan oleh perusahaan pengembang game besar menerima lebih banyak anggaran untuk iklan sehingga mereka bisa sangat populer. Game-game populer akan muncul di posisi teratas pada halaman web toko dan menarik lebih banyak pengguna untuk membeli [[5]](https://link.springer.com/chapter/10.1007/978-3-030-44900-1_9#citeas). Oleh karena itu, diperlukan suatu sistem rekomendasi yang akan memanfaatkan data dengan optimal dengan banyak variabel-variabel lain yang mungkin dapat menyelesaikan permasalahan tersebut.
+Di sisi lain, sistem rekomendasi terkadang tidak berfungsi sebaik yang diharapkan. Salah satu alasan untuk ini adalah Efek Matius [[6]](https://link.springer.com/chapter/10.1007/978-3-030-44900-1_9#citeas)[[7]](https://www.science.org/doi/abs/10.1126/science.159.3810.56), yang berarti yang kaya semakin kaya dan yang miskin semakin miskin, selalu muncul di bidang ilmu sosial, juga dapat diterapkan pada pasar game. Game-game yang dikembangkan oleh perusahaan pengembang game besar menerima lebih banyak anggaran untuk iklan sehingga mereka bisa sangat populer. Game-game populer akan muncul di posisi teratas pada halaman web toko dan menarik lebih banyak pengguna untuk membeli [[5]](https://link.springer.com/chapter/10.1007/978-3-030-44900-1_9#citeas). Games dengan anggaran rendah yang kurang mendapat perhatian akan mudah dilupakan oleh pengguna. Bahkan lebih buruknya lagi, jika pengembang tidak dapat menghasilkan uang dari permainan-permainan tersebut, sangat mungkin perusahaan mereka bangkrut, yang merugikan pasar game secara keseluruhan. Inilah alasan mengapa orang memerlukan sistem rekomendasi, untuk merekomendasikan games niche kepada user. Oleh karena itu, diperlukan suatu sistem rekomendasi yang akan memanfaatkan data dengan optimal dengan banyak variabel-variabel lain yang mungkin sehingga pengguna tidak hanya mendapatkan games dari developer besar yang sudah dikenal oleh banyak orang dengan biaya promosi yang besar pula namun juga dapat menemukan games tidak mainstream lain sesuai dengan preferensi user, diharapkan hal ini dapat menyelesaikan permasalahan tersebut.
 
 ## Business Understanding
 Berdasarkan latar belakang project yang telah disusun, maka akan didapatkan problem statements, goals, dan solution statements dari project ini.
 
 ### Problem Statements
 Berdasarkan latar belakang yang ada berikut merupakan problem statements yang disusun dalam proyek ini:
-1. Berdasarkan data mengenai games yang ada, bagaimana membuat rekomendasi dengan Content Based Filtering?
-2. Berdasarkan data users yang dimiliki, bagaimana Steam dapat membuat Collaborative Filtering untuk menampilkan rekomendasi games?
+1. Bagaimana Steam dapat menampilkan seluruh games yang tidak terbatas pada games yang trending saja kepada user?
+2. Bagaimana Steam dapat memberikan rekomendasi games yang kemungkinan disukai user berdasarkan data historis user?
    
 ### Goals
 Berdasarkan latar belakang dan problem statements yang telah dirumuskan, berikut merupakan goals dari proyek ini:
-1. Menghasilkan sejumlah rekomendasi games yang dipersonalisasi pengguna menggunakan teknik Content Based Filtering.
-2. Menghasilkan sejumlah rekomendasi games sesuai dengan pengguna dengan menggunakan Collaborative Filtering.
+1. Menghasilkan kumpulan rekomendasi games yang sesuai dengan apa yang sedang dicari user dan tidak hanya menampilkan games yang trending saja.
+2. Menghasilkan kumpulan rekomendasi games yang kemungkinan disukai user berdasarkan data historis user.
    
 ### Solution Statements
 Berdasarkan problem statements dan goals yang telah dibuat, maka terdapat solution statements untuk menyelesaikannya pada proyek ini, yaitu:
 1. Melakukan data understanding dan preparation sebelum menggunakan data ke dalam model agar dataset sudah bersih dan layak untuk digunakan.
-2. Membangun dan mengevaluasi model yang dibangun untuk Content Based Filtering menggunakan gabungan TF-IDF Metrix dan K-Nearest Neighbor
-3. Membangun dan mengevaluasi model yang dibangun untuk Collaborative Filtering menggunakan User-Based dan Nearest Neighbor
+2. Membangun dan mengevaluasi model yang dibangun untuk Content Based Filtering menggunakan gabungan TF-IDF Metrix dan K-Nearest Neighbor untuk dapat memberikan hasil rekomendasi games seperti yangs sedang dicari user dan tidak terbatas pada trending games saja.
+3. Membangun dan mengevaluasi model yang dibangun untuk Collaborative Filtering menggunakan User-Based yaitu dengan Collaborative Filtering berbasis embedding untuk dapat memberikan hasil rekomendasi games yang kemungkinan disukai oleh user berdasarkan data historis user.
 
    
 ## Data Understanding
@@ -87,7 +87,7 @@ Pada proses ini akan dilakukan analisis dari variabel dan jenis datanya serta ka
 ![image](https://github.com/tasyyaa/Steam-Game-Recommendation-System/assets/100066633/9479bbef-165d-4ca3-aff1-49be0a9a5370)
 ![image](https://github.com/tasyyaa/Steam-Game-Recommendation-System/assets/100066633/6fa50653-6927-4b5d-a517-4ea40d4a7959)
 
-Berdasarkan hasil di atas dapat dilihat bahwa games memiliki 13 variabel yang di dalamnya terdapat nama games, tanggal rilis, harga, dan lain-lain. Dapat juga dilihat bahwa terdapat 50.872 games yang ada pada data dengan contoh bentuk data seperti yang ditunjukkan di gambar. Namun, dapat dilihat bahwa data tidak mengandng informasi genre games yang akan digunakan di dalam proyek, oleh karena itu diperlukan penggabungan dengan dataset lain yaitu games_meta.json
+Berdasarkan hasil di atas dapat dilihat bahwa games memiliki **13 kolom variabel** yang di dalamnya terdapat nama games, tanggal rilis, harga, dan lain-lain. dataframe ini memiliki **50.872 baris data**. Tipe data yang terdapat pada dataframe ini juga berbeda sesuai dengan kebutuhan. Namun, dapat dilihat bahwa data tidak mengandng informasi genre games yang akan digunakan di dalam proyek, oleh karena itu diperlukan penggabungan dengan dataset lain yaitu games_meta.json. 
 
 #### games_meta variabel
 Pada proses ini dilakukan analisis dari variabel dan jenis data dari entitas games_meta.json
@@ -95,15 +95,16 @@ Pada proses ini dilakukan analisis dari variabel dan jenis data dari entitas gam
 ![image](https://github.com/tasyyaa/Steam-Game-Recommendation-System/assets/100066633/5c947cde-9ae2-40b0-9c72-2b96d400098d)
 ![image](https://github.com/tasyyaa/Steam-Game-Recommendation-System/assets/100066633/21daca14-ffff-4fe1-be13-b0f10985e560)
 
-Berdasarkan gambar yang telah ditautkan dapat dilihat bahwa dataset ini merupakan dataset dari games yang memiliki deskripsi dan genre dari games. Genre ini akan digunakan sebagai salah satu variabel untuk menemukan rekomendasi berdasarkan content based filtering. 
+Berdasarkan gambar yang telah ditautkan dapat dilihat bahwa dataset ini merupakan dataset dari games yang memiliki deskripsi dan genre dari games. Genre ini akan digunakan sebagai salah satu variabel untuk menemukan rekomendasi berdasarkan content based filtering. Jumlah data pada dataframe ini sama dengan dataframe games yaitu **50.872 baris data** hal ini dikarenakan games_meta memang merupakan informasi tambahan yang seharusnya dimiliki oleh games oleh karena itu jumlah baris mereka sama. Dari gambar juga dapat dilihat bahwa dataset ini hanya memiliki **tiga kolom** yang memiliki satu tipe int dan dua tipe object. Dataset ini dapat digabungkan dengan dataset games. Dataframe ini sendiri dipisah dengan dataframe games karena dalam tags terdapat bentuk list yang tidak dapat dibentuk menjadi .csv yaitu format pertama dari dataframe games.
 
 #### Recommendations Variabel
 Proses ini akan dilakukan analisis dari variabel dan jenis data pada entitas recommendations untuk melihat karakteristiknya dan apa yang dapat digunakan dalam sistem rekomendasi nanti
 
 ![image](https://github.com/tasyyaa/Steam-Game-Recommendation-System/assets/100066633/05b35cb0-2677-481e-be98-56a0a34c000b)
 ![image](https://github.com/tasyyaa/Steam-Game-Recommendation-System/assets/100066633/91ecbb20-3cb0-4962-a77b-806c0c4bcb31)
+![image](https://github.com/tasyyaa/Steam-Game-Recommendation-System/assets/100066633/c428050b-9fdf-456f-8f3d-7dec0f62e172)
 
-Berdasarkan hasil di atas, salah satu variabel yang dapat digunakan untuk sistem rekomendasi adalah variabel "is_recommended" yang menunjukkan apakah user merekomendasikan games tersebut ke orang lain. Variabel tersebut dapat digunakan dalam collaborative filtering
+Dataframe recommendations memiliki **8 kolom atau variabel** dengan jumlah baris data berupa **41.154.794 baris data** yang sangat banyak. Kolom pada dataframe ini memiliki tipe data yang berbeda-beeda yaitu int, object, atau float. Dapat dilihat pula contoh dari data yang ditunjukkan. Dan berdasarkan hasil di atas, salah satu variabel yang dapat digunakan untuk sistem rekomendasi adalah variabel "is_recommended" yang menunjukkan apakah user merekomendasikan games tersebut ke orang lain. Variabel tersebut dapat digunakan dalam collaborative filtering.
 
 #### Users variabel
 Proses ini akan mencakup analisis dari entitas user untuk melihat karakteristik variabel di dalamnya.
@@ -112,7 +113,10 @@ Proses ini akan mencakup analisis dari entitas user untuk melihat karakteristik 
 ![image](https://github.com/tasyyaa/Steam-Game-Recommendation-System/assets/100066633/5941d9cf-e738-4dd3-a8a2-6d98bd3038e8)
 ![image](https://github.com/tasyyaa/Steam-Game-Recommendation-System/assets/100066633/780530a4-7f4e-4b62-9ab7-1a94b513d805)
 
-Berdasarkan hasil di atas dapat dilihat bahwa entitas ini hanya memiliki 3 variabel, satu variabel penting yang dapat digunakan pada entitas ini adalah user_id yang menjadi foreign key pada data recommendations. user_id dapat digunakan untuk melakukan collaborative filtering bersama variabel is_recommended.
+Berdasarkan hasil di atas dapat dilihat bahwa entitas ini hanya memiliki **3 variabel** namun dengan jumlah baris data yang cukup besar yaitu **14.306.064 baris data** yang juga tidak kalah besar dibandingkan dataframa recommendations sebelumnya, satu variabel penting yang dapat digunakan pada entitas ini adalah user_id yang menjadi foreign key pada data recommendations. user_id dapat digunakan untuk melakukan collaborative filtering bersama variabel is_recommended.
+
+Data yang akan digunakan pada proyek ini adalah dataframe **games** dan **games_meta** yang akan digunakan pada **Content Based Filtering** karena akan memakai fitur **title** dan juga **tags** dari keduanya. Kemudian juga akan digunakan dataframe **recommendations** yaitu **is_recommended**, **app_id**, dan **user_id** serta dataframe **user** yaitu **user_id** dalam membuat sistem rekomendasi **Collaborative Filtering** yang akan digabungkan dengan dataframe gabungan **games** dan **games_meta** karena membutuhkan app_id, title, dan tags.
+
 
 ## Data Preparation
 Data preparation merupakan proses yang melibatkan beberapa langkah untuk mengubah data mentah menjadi format yang sesuai dan siap digunakan dalam analisis atau model prediktif. Pada proyek ini digunakan beberapa metode data preparation dimulai dari yang paling standar yaitu mencari missing value hingga feature scaling.
@@ -143,8 +147,15 @@ Pada tahap ini dilakukan pengubahan dataframe menjadi list dan kemudian melakuka
 
 Tahap selanjutnya adalah membagi data menjadi train dan testing data. Data splitting adalah proses membagi dataset menjadi dua subset terpisah yaitu training dataset dan testing dataset. Training dataset dibuat untuk digunakan dalam melatih model sedangkan testing dataset dibuat untuk menguji performa model terhadap data yang belum pernah dilihatnya. Proses ini perlu dilakukan karena untuk dapat melihat kinerja model apakah model sudah berjalan baik atau masih overfitting maupun underfitting. Pada proyek ini tahap pertama sebelum melakukan data splitting adalah mengacak dataframe recommendations_merge sehingga tidak berurutan kemudian melakukan pembagian menjadi 80% untuk train dataset dan 20% untuk validation atau testing dataset. Data yang sudah dibagi ini akan digunakan dalam metode collaborative filtering. Berdasarkan hasil pembagian didapatkan **8000** data untuk training data dan **2000** data untuk testing data.
 
-1. **TF-IDF Vectorizer**
-TF-IDF atau Term Frequency-Inverse Document Frequency merupakan teknik yang digunakan dalam text mining dan information retrieval untuk merepresentasikan teks sebagai vektor numerik, yang mencerminkan pentingnya kata-kata dalam dokumen. TF-IDF sendiri memiliki beberapa komponen, yaitu:
+### TF-IDF Vectorizer (Feature Extraction)
+TF-IDF atau Term Frequency-Inverse Document Frequency merupakan teknik yang digunakan dalam text mining dan information retrieval untuk merepresentasikan teks sebagai vektor numerik, yang mencerminkan pentingnya kata-kata dalam dokumen. **Kegunaan** TF-IDF dalam Content Based Filtering ini adalah untuk mengubah list tags dari games menjadi vektor fitur yang memungkinkan sistem untuk menghitung kesamaan antara games berdasarkan tags tersebut. Pada proyek ini **penggunaan** TF-IDF dilakukan dengan mengubah list dari tags yang dimiliki oleh dataframe games_merge menjadi String dan setelah dimasukkan ke **TfidVectorizer()** dalam TF-IDF tags tersebut terbagi menjadi list dari kumpulan seluruh jenis genre dan memberikan matrix TF-IDF berupa nilai suatu judul game dengan suatu tags atau genre. Genre yang awalnya berupa gabungan list pada matrix akan ditampilkan menjadi masing-masing string untuk tiap genre yang ada. 
+
+![image](https://github.com/tasyyaa/Steam-Game-Recommendation-System/assets/100066633/0b3b42c8-8321-4e88-91f9-71880ffdb51b)
+
+Melihat gambar di atas berikut merupakan cuplikan dari sampel games dengan hasil pembobotan genre terhadap games tersebut. Dapat dilihat bahwa pada games **Little Adventure 2** nilai dari genre **platformer** bukan 0 tetapi **0.2535** yang berarti games tersebut memiliki tags atau genre **platformer**. Semakin tinggi nilai dari TF-IDF menunjukkan bahwa game tersebut semakin condong terhadap genre tersebut. Total dari nilai pada satu genre adalah 1.
+
+
+TF-IDF sendiri memiliki beberapa komponen, yaitu:
 - **Term Frequency (TF)**
   Untuk mengukur seberapa sering suatu kata muncul dalam dokumen tertentu dengan rumus
   ![image](https://github.com/tasyyaa/Steam-Game-Recommendation-System/assets/100066633/2d86db7a-649c-45fa-9ade-70eccbee9cde)
@@ -167,17 +178,13 @@ TF-IDF atau Term Frequency-Inverse Document Frequency merupakan teknik yang digu
 2. Mengabaikan urutan kata
 3. Skalabilitas yang sangat memakan waktu dan memori pada dataset besar
 
-**Kegunaan** TF-IDF dalam Content Based Filtering ini adalah untuk mengubah list tags dari games menjadi vektor fitur yang memungkinkan sistem untuk menghitung kesamaan antara games berdasarkan tags tersebut. Pada proyek ini **penggunaan** TF-IDF dilakukan dengan mengubah list dari tags yang dimiliki oleh datafram games_merge menjadi String dan setelah dimasukkan ke **TfidVectorizer()** dalam TF-IDF tags tersebut terbagi menjadi list dari kumpulan seluruh jenis genre dan memberikan matrix TF-IDF berupa nilai suatu judul game dengan suatu tags atau genre. Genre yang awalnya berupa gabungan list pada matrix akan ditampilkan menjadi masing-masing string untuk tiap genre yang ada. 
-
-![image](https://github.com/tasyyaa/Steam-Game-Recommendation-System/assets/100066633/0b3b42c8-8321-4e88-91f9-71880ffdb51b)
-
-Melihat gambar di atas berikut merupakan cuplikan dari sampel games dengan hasil pembobotan genre terhadap games tersebut. Dapat dilihat bahwa pada games **Little Adventure 2** nilai dari genre **platformer** bukan 0 tetapi **0.2535** yang berarti games tersebut memiliki tags atau genre **platformer**. Semakin tinggi nilai dari TF-IDF menunjukkan bahwa game tersebut semakin condong terhadap genre tersebut. Total dari nilai pada satu genre adalah 1.
-
 ## Modeling dan Result
 Pada tahap ini dilakukan pembuatan model dari Machine Learning yang bertujuan untuk membentuk model sistem rekomendasi untuk game yang terdapat di Steam dengan baik. Akan dilakukan dua pembuatan sistem rekomendasi, yaitu pembuatan sistem rekomendasi untuk mendapatkan rekomendasi games berdasarkan genre yang sesuai dari suatu game menggunakan **Content Based Filtering**, serta pembuatan sistem rekomendasi untuk mendapatkan rekomendasi games berdasarkan games yang sesuai dengan games yang telah direkomendasikan oleh user pada review Steam menggunakan **Collaborative Filtering**. Kedua model ini memiliki tahapan yang sedikit berbeda dengan bentuk input data yang berbeda. Untuk melihat lebih jelasnya sebagai berikut:
 
 ### Model Development dengan Content Based Filtering
-**Content-Based Filtering** merupakan salah satu teknik dalam sistem rekomendasi yang memberikan rekomendasi kepada pengguna berdasarkan karakteristik atau fitur dari item yang mereka sukai sebelumnya. Cara kerja dari teknik ini adalah fitur ekstraksi yaitu melakukan ekstraksi dari fitur yang terdapat dalam suatu item, yang pada games ini adalah tags kemudian dilakukan penilaian kesamaan fitur antara tags pada games tersebut dengan tags-tags yang terdapat pada games lain dengan games yang memiliki tags terdekat akan menjadi hasil rekomendasi. 
+**Content-Based Filtering** merupakan salah satu teknik dalam sistem rekomendasi yang memberikan rekomendasi kepada pengguna berdasarkan karakteristik atau fitur dari item yang mereka sukai sebelumnya. 
+
+Cara kerja dari teknik ini adalah fitur ekstraksi yaitu melakukan ekstraksi dari fitur yang terdapat dalam suatu item, yang pada games ini adalah tags kemudian dilakukan penilaian kesamaan fitur antara tags pada games tersebut dengan tags-tags yang terdapat pada games lain dengan games yang memiliki tags terdekat akan menjadi hasil rekomendasi. 
 
 **Keuntungan Content-Based Filtering**
 1. Setiap user mendapatkan rekomendasi yang sesuai dengan preferensi mereka yang unik
@@ -193,6 +200,11 @@ Pada tahap ini dilakukan pembuatan model dari Machine Learning yang bertujuan un
 #### K-Nearest Neighbors
 **K-Nearest Neighbor (K-NN)** merupakan algoritma yang pada umumnya digunakan pada sistem klasifikasi atau regresi, namun pada konteks sistem rekomendasi, K-NN digunakan untuk menemukan item yang paling mirip dengan item yang telah disukai oleh pengguna berdasarkan atribut atau fitur mereka.
 
+Pada proyek ini **penggunaan** KNN dilakukan pada bidang pengukuran kesamaan dan identifikasi tetangga terdekat. Sebelumnya telah dilakukan representasi fitur dengan menggunakan TF-IDF, hasil dari representasi fitur ini kemudian digunakan oleh KNN untuk mengukur kesamaan antar fitur menggunakan metrik Cosine Similarity pada KNN. Cosine Similarity adalah metrik kesamaan yang digunakan untuk mengukur seberapa mirip dua item berdasarkan fitur atau atribut mereka. Perhitungan dari cosine similarity seperti berikut
+![image](https://github.com/tasyyaa/Steam-Game-Recommendation-System/assets/100066633/c685881e-2505-47df-84a9-2e26c2995bb4)
+
+Setelah dilakukan pengukuran kesamaan menggunakan KNN dengan metrik cosine similarity kemudian dilakukan identifikasi tetangga terdekat yaitu sebanyak lima tetangga terdekat dari tags yang akan digunakan.
+
 **Kelebihan**
 1. Sederhana dan intuitif
 2. Tidak membutuhkan pelatihan yang rumit
@@ -203,10 +215,6 @@ Pada tahap ini dilakukan pembuatan model dari Machine Learning yang bertujuan un
 2. Lambat dan membutuhkan banyak memori
 3. Tidak menangkan hubungan yang kompleks
 
-**Kegunaan** KNN ini pada sistem rekomendasi dapat digunakan pada beberapa bagian, yaitu representasi fitur seperti TF-IDF, pengukuran kesamaan, dan identifikasi tetangga terdekat. Pada proyek ini **penggunaan** KNN dilakukan pada bidang pengukuran kesamaan dan identifikasi tetangga terdekat. Sebelumnya telah dilakukan representasi fitur dengan menggunakan TF-IDF, hasil dari representasi fitur ini kemudian digunakan oleh KNN untuk mengukur kesamaan antar fitur menggunakan metrik Cosine Similarity pada KNN. Cosine Similarity adalah metrik kesamaan yang digunakan untuk mengukur seberapa mirip dua item berdasarkan fitur atau atribut mereka. Perhitungan dari cosine similarity seperti berikut
-![image](https://github.com/tasyyaa/Steam-Game-Recommendation-System/assets/100066633/c685881e-2505-47df-84a9-2e26c2995bb4)
-
-Setelah dilakukan pengukuran kesamaan menggunakan KNN dengan metrik cosine similarity kemudian dilakukan identifikasi tetangga terdekat yaitu sebanyak lima tetangga terdekat dari tags yang akan digunakan.
 
 #### Mendapatkan Rekomendasi
 Tahapan ini adalah tahapan untuk melihat hasil rekomendasi yang diberikan oleh model yang telah dibuat. Untuk mendapatkan rekomendasi hanya diperlukan function model yang telah dibuat sebelumnya dan memasukkan parameter berupa title yang menjadi games yang akan dicari rekomendasi kesamaannya berdasarkan tagsnya. Hasil yang diperoleh seperti berikut:
@@ -220,28 +228,20 @@ Nama games dan title dari game yang akan menjadi input model rekomendasi
 Merupakan hasil dari rekomendasi berdasarkan input sebelumnya, dapat dilihat bahwa tags yang dimiliki menyerupai tags pada input dan jika dilihat lebih saksama games rekomendasi merupakan games dengan seri yang sama dengan games input.
 
 ### Model Development dengan Collaborative Filtering
-**Collaborative Filtering** adalah salah satu pendekatan dalam sistem rekomendasi yang menggunakan perilaku atau preferensi pengguna untuk memprediksi preferensi yang lebih baik untuk pengguna lain. Pendekatan ini tidak bergantung pada atribut atau karakteristik item (seperti dalam content-based filtering), tetapi lebih fokus pada hubungan antar pengguna dan item berdasarkan data historis preferensi. Pada proyek ini fokus dari collaborative filtering adalah data games yang direkomendasikan oleh user dan akan mencari games lain yang sesuai dengan games yang telah direkomendasikan tersebut. Teknik ini akan menggunakan user-based collaborative filtering dengan menghitung kesamaan antara user berdasarkan data rekomendasi gamenya dengan user lain yang memiliki rekomendasi yang sama memberikan rekomendasi game apa selain game tersebut.
+**Collaborative Filtering** adalah salah satu pendekatan dalam sistem rekomendasi yang menggunakan perilaku atau preferensi pengguna untuk memprediksi preferensi yang lebih baik untuk pengguna lain. Pendekatan ini tidak bergantung pada atribut atau karakteristik item (seperti dalam content-based filtering), tetapi lebih fokus pada hubungan antar pengguna dan item berdasarkan data historis preferensi. 
 
-**Kelebihan Collaborative Filtering**
-1. Efektif untuk long tain atau merekomendasikan item yang jarang dilihat atau dieksplorasi oleh pengguna
-2. Memperhitungkan perubahan preferensi
+Pada proyek ini fokus dari collaborative filtering adalah **data games yang direkomendasikan oleh user dan akan mencari games lain yang sesuai dengan games yang telah direkomendasikan tersebut**. Teknik ini akan menggunakan user-based collaborative filtering dengan menghitung kesamaan antara user berdasarkan data rekomendasi gamenya dengan user lain yang memiliki rekomendasi yang sama memberikan rekomendasi game apa selain game tersebut.
 
-**Kelemahan Collaborative Filtering**
-1. Kesulitan dalam memberikan rekomendasi untuk pengguna baru atau item baru yang belum memiliki data historis yang cukup.
-2. Masalah yang timbul ketika data preferensi pengguna sangat jarang, yang dapat mengurangi keakuratan prediksi.
-3. Over Specialization atau rekomendasi yang terlalu spesifik
-
-#### Collaborative Filtering berbasis Embedding
 Pada proyek ini digunakan Tensorflow dan Keras untuk mengimplementasikan sebuah model dalam sistem rekomendasi. Pada algoritma ini terdapat tiga komponen penting yang harus diperhatikan, yaitu:
 1. **Embedding Layers**
-   Terdapat dua jenis embedding layer: untuk pengguna (users) dan untuk games. Embedding layer bertujuan untuk memetakan pengguna dan item ke dalam ruang laten (embedding space) yang memiliki dimensi embedding_size. Ini memungkinkan model untuk mempelajari representasi yang lebih kompak dan berdimensi rendah dari pengguna dan item.
+   Terdapat dua jenis embedding layer yang digunakan yaitu untuk **pengguna (users)** dan untuk **games**. Embedding layer bertujuan untuk memetakan pengguna dan item ke dalam ruang laten (embedding space) yang memiliki dimensi embedding_size. 
 
 2. **Input dan Output**
-**Input**: Model ini menerima input dalam bentuk tensor inputs dengan dua kolom. Kolom pertama adalah indeks pengguna (inputs[:, 0]) dan kolom kedua adalah indeks game (inputs[:, 1]).
-**Output**: Model menghitung dot product antara embedding vektor pengguna dan embedding vektor game (dot_user_games). Kemudian ditambahkan dengan bias yang sesuai (user_bias dan games_bias). Hasilnya kemudian melewati fungsi aktivasi sigmoid (tf.nn.sigmoid(x)) untuk menghasilkan prediksi probabilitas.
+**Input**: Model ini menerima input dalam bentuk tensor inputs dengan dua kolom. Kolom pertama adalah indeks pengguna **(inputs[:, 0])** dan kolom kedua adalah indeks game **(inputs[:, 1])**.
+**Output**: Model menghitung dot product antara embedding vektor pengguna dan embedding vektor game **(dot_user_games)**. Kemudian ditambahkan dengan bias yang sesuai **(user_bias dan games_bias)**. Hasilnya kemudian melewati fungsi aktivasi sigmoid **(tf.nn.sigmoid(x))** untuk menghasilkan prediksi probabilitas.
 
 3. **Optimasi dan Metrics**
-   Model menggunakan Binary Crossentropy sebagai loss function (tf.keras.losses.BinaryCrossentropy()) karena umumnya digunakan untuk masalah rekomendasi biner (misalnya, apakah pengguna akan menyukai atau tidak suatu game).
+   Model menggunakan Binary Crossentropy sebagai loss function **(tf.keras.losses.BinaryCrossentropy())** karena umumnya digunakan untuk masalah rekomendasi biner (misalnya, apakah pengguna akan menyukai atau tidak suatu game).
 Adam optimizer digunakan untuk mengoptimalkan model dengan learning rate 0.001.
 Metrics yang digunakan adalah Root Mean Squared Error (RMSE), yang merupakan metrik umum untuk mengukur akurasi dari model rekomendasi.
 
@@ -267,7 +267,31 @@ Berdasarkan hasil di atas dapat dilihat dari user yang terpilih random bahwa dia
 
 
 ## Evaluation
-Proses ini merupakan proses untuk menilai kinerja dari model Machine Learning yang telah dilatih dan sangat penting untuk dilakukan untuk memastikan bahwa model bekerja dengan baik pada data yang belum dilihat sebelumnya yaitu menggunakan data testing. Metrik yang digunakan pada evaluasi kali ini adalah metrik evaluasi **Root Mean Squared Error (RMSE)** untuk menilai hasil yang didapatkan oleh Collaborative Filtering. Berikut merupakan penjelasan dari **Root Mean Square Error**
+Proses ini merupakan proses untuk menilai kinerja dari model Machine Learning yang telah dilatih dan sangat penting untuk dilakukan untuk memastikan bahwa model bekerja dengan baik pada data yang belum dilihat sebelumnya yaitu menggunakan data testing. Metrik yang digunakan pada evaluasi kali ini adalah metrik evaluasi **precision** dan **recall** untuk **content-based filtering** dan **Root Mean Squared Error (RMSE)** untuk menilai hasil yang didapatkan oleh Collaborative Filtering. Berikut merupakan penjelasan dari metrik evaluasi tersebut
+
+### Evaluasi Content-Based Filtering
+Algoritma yang digunakan untuk membentuk sistem rekomendasi ini memang pada dasarnya adalah RMSE, MSE, dan lain-lain, namun karena perbedaan beberapa hal pada sistem rekomendasi Content-Based Filtering maka evaluasi dengan metrik RMSE tidak dapat dilakukan karena RMSE hanya digunakan untuk hasil data yang kontinu bukan hasil metrik cosine similarity RMSE ini tidak dapat digunakan untuk evaluasi oleh karena itu digunakan evaluasi metrik yang lebih cocok yaitu **precision** dan **recall** lebih lanjutnya ada pada deskripsi berikut
+
+- **precision** Mengukur proporsi dari K rekomendasi teratas yang relevan dengan pengguna, yaitu pada sistem rekomendasi yang dibuat akan dilakukan perhitungan 3 rekomendasi teratas yang relevan oleh pengguna lalu akan dilakukan pengukuran proporsisinya. Rumus matematis dari precision sendiri adalah seperti berikut
+  ![image](https://github.com/tasyyaa/Steam-Game-Recommendation-System/assets/100066633/d6e95040-bb1a-45c4-9923-166a454d9b57)
+
+True Positive adalah jumlah games yang direkomendasikan dan relevan, sedangkan False Positive (FP) adalah jumlah item yang direkomendasikan tetapi tidak relevan. Hasil dari metrik ini akan semakin baik jika semakin besar
+
+- **recall** Mengukur proporsi item yang relevan yang direkomendasikan dalam K rekomendasi teratas. Jika dalam proyek ini maka akan dihitung berapa jumlah games yang relevan yang direkomendasikan dari games yang seharusnya relevan. Untuk rumus matematis Recall sendiri adalah seperti berikut
+  
+![image](https://github.com/tasyyaa/Steam-Game-Recommendation-System/assets/100066633/969e2ce9-52d4-4965-9b45-3e141baae0f1)
+
+Semakin tinggi nilai dari recall maka semakin baik sistem dalam menemukan games yang relevan untuk user.
+
+- **Hasil Evaluasi**
+  Dilakukan perhitungan evaluasi dengan kedua metrix tersebut dan didapatkan hasil seperti berikut
+
+  ![image](https://github.com/tasyyaa/Steam-Game-Recommendation-System/assets/100066633/c8c1057e-aa7f-404f-932f-44d65790ad3f)
+
+Berdasarkan hasil tersebut didapatkan bahwa precision untuk 5 games teratas yang didapatkan adalah 0.6 yang berarti proporsi dari games teratas yang diberikan dari yang sesuai dengan games pertama hanya 0.6, sedangkan untuk recall berada pada besaran 1 yaitu cukup besar atau hampir sempurna yang berarti seluruh games yang seharusnya direkomendasikan telah berhasil direkomendasikan oleh sistem. Kedua hasil tersebut baik **precision 0,6** dan **recall 1.0** sudah sangat baik untuk suatu sistem rekomendasi games.
+
+### Evaluasi Collaborative Filtering
+Pada teknik collaborative filtering, metrik evaluasi yang digunakan adalah Root Mean Squared Error (RMSE) karena sesuai dengan algoritma yang digunakan serta hasil dari perhitungan Collaborative filtering adalah nilai kontinu sehingga dapat menggunakan RMSE sebagai metrik evaluasi.
 
 - **Root Mean Squared Error (RMSE)**
   Root Mean Squared Error (RMSE) adalah salah satu metrik evaluasi yang umum digunakan untuk mengukur seberapa baik suatu model regresi (termasuk model rekomendasi) dapat memprediksi nilai kontinu. RMSE mengukur akar rata-rata dari kuadrat selisih antara nilai prediksi model dengan nilai yang diamati atau sebenarnya. Secara matematis, RMSE dapat dihitung dengan rumus berikut:
@@ -282,8 +306,8 @@ dengan n merupakan jumlah sampel dalam data, y merupakan nilai sebenarnya dari s
 Berdasarkan hasil visualisasi tersebut didapatkan bahwa model dikatakan **overfitting** karena hasil testing yang jauh berbeda dan lebih besar dibandingkan hasil training. Hal ini menandakan bahwa model masih belum dapat bekerja dengan baik saat bertemu dengan dataset baru yang belum pernah dilihat sebelumnya. Namun, jika dilihat berdasarkan hasil yang didapatkan sebelumnya dapat dikatakan bahwa model masih berjalan dengan baik namun tidak sempurna.
 
 Berdasarkan hasil yang diperoleh dari pengerjaan proyek ini maka didapatkan beberapa hal, yaitu:
-1. Pembuatan sistem rekomendasi pada dataset ini dengan menggunakan Content Based Filtering dapat dilakukan dengan mencari rekomendasi games yang menyerupai games lain berdasarkan kemiripan dari tags atau genre dari games tersebut. Data games ini terdapat pada games.csv dan games_meta.json dan menggunakan algoritma TF-IDF sebagai representasi fitur dan penggunaan K-Nearest Neighbor sebagai penghitung jarak kesamaan dan mencari titik terdekat.
-2. Pembuatan sistem rekomendasi pada dataset ini dengan menggunakan Collaborative Filtering dapat dilakukan dengan membuat rekomendasi untuk user berdasarkan games yang telah dia rekomendasikan pada review yang dia publish sesuai dengan data user lain yang melakukan rekomendasi game yang sama. Algoritma yang digunakan adalah Collaborative Filtering dengan basis Embedding dan menggunakan Root Mean Squared Error sebagai metriks akurasi.
+1. Steam dapat menampilkan rekomendasi yang tidak terbatas pada games trending saja yaitu dengan membuat sistem rekomendasi dengan teknik Content Based Filtering berbasis TF-IDF menggunakan algoritma KNN dengan membuat sistem yang bisa memberikan rekomendasi games yang menyerupai genre dari games yang sedang dicari oleh pengguna.
+2. Steam dapat memberikan rekomendasi kepada user games yang kemungkinan user sukai dengan membuat sistem rekomendasi dengan menggunakan teknik Collaborative Filtering berbasis embedding dengan membuat rekomendasi yang akan memberikan user games yang telah direkomendasikan oleh pengguna lain yang juga merekomendasikan games yang sama dengan user tersebut.
 
 ## Referensi
 [1] G. Adomavicius and A. Tuzhilin, "Toward the next generation of recommender systems: a survey of the state-of-the-art and possible extensions," in IEEE Transactions on Knowledge and Data Engineering, vol. 17, no. 6, pp. 734-749, June 2005, doi: 10.1109/TKDE.2005.99.
