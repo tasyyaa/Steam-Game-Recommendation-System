@@ -143,22 +143,6 @@ Pada tahap ini dilakukan pengubahan dataframe menjadi list dan kemudian melakuka
 
 Tahap selanjutnya adalah membagi data menjadi train dan testing data. Data splitting adalah proses membagi dataset menjadi dua subset terpisah yaitu training dataset dan testing dataset. Training dataset dibuat untuk digunakan dalam melatih model sedangkan testing dataset dibuat untuk menguji performa model terhadap data yang belum pernah dilihatnya. Proses ini perlu dilakukan karena untuk dapat melihat kinerja model apakah model sudah berjalan baik atau masih overfitting maupun underfitting. Pada proyek ini tahap pertama sebelum melakukan data splitting adalah mengacak dataframe recommendations_merge sehingga tidak berurutan kemudian melakukan pembagian menjadi 80% untuk train dataset dan 20% untuk validation atau testing dataset. Data yang sudah dibagi ini akan digunakan dalam metode collaborative filtering. Berdasarkan hasil pembagian didapatkan **8000** data untuk training data dan **2000** data untuk testing data.
 
-## Modeling dan Result
-Pada tahap ini dilakukan pembuatan model dari Machine Learning yang bertujuan untuk membentuk model sistem rekomendasi untuk game yang terdapat di Steam dengan baik. Akan dilakukan dua pembuatan sistem rekomendasi, yaitu pembuatan sistem rekomendasi untuk mendapatkan rekomendasi games berdasarkan genre yang sesuai dari suatu game menggunakan **Content Based Filtering**, serta pembuatan sistem rekomendasi untuk mendapatkan rekomendasi games berdasarkan games yang sesuai dengan games yang telah direkomendasikan oleh user pada review Steam menggunakan **Collaborative Filtering**. Kedua model ini memiliki tahapan yang sedikit berbeda dengan bentuk input data yang berbeda. Untuk melihat lebih jelasnya sebagai berikut:
-
-### Model Development dengan Content Based Filtering
-**Content-Based Filtering** merupakan salah satu teknik dalam sistem rekomendasi yang memberikan rekomendasi kepada pengguna berdasarkan karakteristik atau fitur dari item yang mereka sukai sebelumnya. Cara kerja dari teknik ini adalah fitur ekstraksi yaitu melakukan ekstraksi dari fitur yang terdapat dalam suatu item, yang pada games ini adalah tags kemudian dilakukan penilaian kesamaan fitur antara tags pada games tersebut dengan tags-tags yang terdapat pada games lain dengan games yang memiliki tags terdekat akan menjadi hasil rekomendasi. 
-
-**Keuntungan Content-Based Filtering**
-1. Setiap user mendapatkan rekomendasi yang sesuai dengan preferensi mereka yang unik
-2. Independen dari pengguna lain (tidak memerlukan data pengguna lain)
-3. Transparan yaitu mudah untuk menjelaskan mengapa suatu item direkomendasikan berdasarkan fitur yang serupa
-
-**Kelemahan Content-Based Filtering**
-1. Cenderung merekomendasikan item yang sangat mirip dengan apa yang disukai pengguna sehingga kurang mengeksplorasi hal baru
-2. Kualitas rekomendasi tergantung pada fitur yang tersedia
-
-**Algoritma yang digunakan**
 1. **TF-IDF Vectorizer**
 TF-IDF atau Term Frequency-Inverse Document Frequency merupakan teknik yang digunakan dalam text mining dan information retrieval untuk merepresentasikan teks sebagai vektor numerik, yang mencerminkan pentingnya kata-kata dalam dokumen. TF-IDF sendiri memiliki beberapa komponen, yaitu:
 - **Term Frequency (TF)**
@@ -188,6 +172,23 @@ TF-IDF atau Term Frequency-Inverse Document Frequency merupakan teknik yang digu
 ![image](https://github.com/tasyyaa/Steam-Game-Recommendation-System/assets/100066633/0b3b42c8-8321-4e88-91f9-71880ffdb51b)
 
 Melihat gambar di atas berikut merupakan cuplikan dari sampel games dengan hasil pembobotan genre terhadap games tersebut. Dapat dilihat bahwa pada games **Little Adventure 2** nilai dari genre **platformer** bukan 0 tetapi **0.2535** yang berarti games tersebut memiliki tags atau genre **platformer**. Semakin tinggi nilai dari TF-IDF menunjukkan bahwa game tersebut semakin condong terhadap genre tersebut. Total dari nilai pada satu genre adalah 1.
+
+## Modeling dan Result
+Pada tahap ini dilakukan pembuatan model dari Machine Learning yang bertujuan untuk membentuk model sistem rekomendasi untuk game yang terdapat di Steam dengan baik. Akan dilakukan dua pembuatan sistem rekomendasi, yaitu pembuatan sistem rekomendasi untuk mendapatkan rekomendasi games berdasarkan genre yang sesuai dari suatu game menggunakan **Content Based Filtering**, serta pembuatan sistem rekomendasi untuk mendapatkan rekomendasi games berdasarkan games yang sesuai dengan games yang telah direkomendasikan oleh user pada review Steam menggunakan **Collaborative Filtering**. Kedua model ini memiliki tahapan yang sedikit berbeda dengan bentuk input data yang berbeda. Untuk melihat lebih jelasnya sebagai berikut:
+
+### Model Development dengan Content Based Filtering
+**Content-Based Filtering** merupakan salah satu teknik dalam sistem rekomendasi yang memberikan rekomendasi kepada pengguna berdasarkan karakteristik atau fitur dari item yang mereka sukai sebelumnya. Cara kerja dari teknik ini adalah fitur ekstraksi yaitu melakukan ekstraksi dari fitur yang terdapat dalam suatu item, yang pada games ini adalah tags kemudian dilakukan penilaian kesamaan fitur antara tags pada games tersebut dengan tags-tags yang terdapat pada games lain dengan games yang memiliki tags terdekat akan menjadi hasil rekomendasi. 
+
+**Keuntungan Content-Based Filtering**
+1. Setiap user mendapatkan rekomendasi yang sesuai dengan preferensi mereka yang unik
+2. Independen dari pengguna lain (tidak memerlukan data pengguna lain)
+3. Transparan yaitu mudah untuk menjelaskan mengapa suatu item direkomendasikan berdasarkan fitur yang serupa
+
+**Kelemahan Content-Based Filtering**
+1. Cenderung merekomendasikan item yang sangat mirip dengan apa yang disukai pengguna sehingga kurang mengeksplorasi hal baru
+2. Kualitas rekomendasi tergantung pada fitur yang tersedia
+
+**Algoritma yang digunakan**
 
 #### K-Nearest Neighbors
 **K-Nearest Neighbor (K-NN)** merupakan algoritma yang pada umumnya digunakan pada sistem klasifikasi atau regresi, namun pada konteks sistem rekomendasi, K-NN digunakan untuk menemukan item yang paling mirip dengan item yang telah disukai oleh pengguna berdasarkan atribut atau fitur mereka.
