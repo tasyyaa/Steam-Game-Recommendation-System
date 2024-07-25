@@ -1,4 +1,5 @@
-# Laporan Proyek Machine Learning - Tasya Putri Aliya
+# Laporan Proyek Machine Learning
+by tasyyaa
 ## Steam Game Recommendation System
 Laporan ini dibentuk sebagai syarat untuk menyelesaikan salah satu Course Dicoding yaitu Machine Learning Terapan
 
