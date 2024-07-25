@@ -1,5 +1,8 @@
 # Laporan Proyek Machine Learning
 by tasyyaa
+
+**Notebook Link**: [Game Recommender System Jupyter Notebook](https://colab.research.google.com/drive/11-ADcd5N-Wc1ngHnXVVvBJGI3lCUFSi5?usp=sharing)
+
 ## Steam Game Recommendation System
 Laporan ini dibentuk sebagai syarat untuk menyelesaikan salah satu Course Dicoding yaitu Machine Learning Terapan
 
